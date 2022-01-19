@@ -1,0 +1,26 @@
+ExACpLI
+A VEP plugin that adds the probabililty of a gene being 
+loss-of-function intolerant (pLI) to the VEP output. ... less
+
+Lek et al. (2016) estimated pLI using the expectation-maximization 
+(EM) algorithm and data from 60,706 individuals from 
+ExAC (http://exac.broadinstitute.org/about). The closer pLI is to 1, 
+the more likely the gene is loss-of-function (LoF) intolerant.
+
+Note: the pLI was calculated using a representative transcript and
+is reported by gene in the plugin.
+
+The data for the plugin is provided by Kaitlin Samocha and Daniel MacArthur. 
+See https://www.ncbi.nlm.nih.gov/pubmed/27535533 for a description 
+of the dataset and analysis.
+
+The ExACpLI_values.txt file is found alongside the plugin in the 
+VEP_plugins GitHub repository. The file contains the fields gene and pLI 
+extracted from the file at
+
+ftp://ftp.broadinstitute.org/pub/ExAC_release/release0.3/functional_gene_constraint/
+fordist_cleaned_exac_r03_march16_z_pli_rec_null_data.txt
+
+To use another values file, add it as a parameter i.e.
+
+     ./vep -i variants.vcf --plugin ExACpLI,values_file.txt
